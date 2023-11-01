@@ -4,6 +4,7 @@ Prints if true or false
 If both false print a little sympathy 
 """
 quitInputs = ("zzz", "ZZZ")
+
 while True:
     userInput = input("Enter last name or 'zzz' to quit: ")
 
