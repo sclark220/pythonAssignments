@@ -1,41 +1,42 @@
-""" 
-Checks if a number is greater than 3.5 and 3.25
-Prints if true or false
-If both false print a little sympathy 
-"""
-quitInputs = ("zzz", "ZZZ")
-while True:
-    userInput = input("Enter last name or 'zzz' to quit: ")
+# These numbers are the gpa requirment for the dean's list and honor roll respectivly 
+DEANTHRESHOLD = 3.5
+HONORTHRESHOLD = 3.25
 
-    if userInput in quitInputs:
+quitInputs = ("zzz", "ZZZ")
+isRunning = True
+while isRunning:
+    # Get user input
+    userInput = input("Enter last name or 'zzz' to quit: ")
+    
+    if userInput in quitInputs: # checks for string and quits
         print("Fine leave then")
-        break
+        isRunning = False
     else:
         lastName = userInput
-
+    # Get user input
     userInput = input("Enter last name or 'zzz' to quit: ")
 
-    if userInput in quitInputs:
+    if userInput in quitInputs: # checks for string and quits
         print("Fine leave then")
-        break
+        isRunning = False
     else:
         firstName = userInput
-
-    userInput = input("Enter GPA with up to 2 decimal places 'Ex: 3, 3.1, or 3.99': ")
-
-    if userInput in quitInputs:
+    # Get user input
+    userInput = input("Enter GPA with up to 2 decimal places 'Ex: 1, 2.1, or 3.99': ")
+    
+    if userInput in quitInputs: # checks for string and quits
         print("Fine leave then")
-        break
+        isRunning = False
     else:
         gpa = float(userInput)
-
-    if gpa >= 3.5:
+    # Checks entered gpa and prints results
+    if gpa >= DEANTHRESHOLD:
         print(f"\n {firstName} {lastName}, you are on the Dean's list!")
-    
-    if gpa >= 3.25:
+    # Checks entered gpa and prints results
+    if gpa >= HONORTHRESHOLD:
         print(f"\n {firstName} {lastName}, you are on the Honor Roll! \n")
-        break
-
-    if gpa < 3.25:
+        isRunning = False
+    # Checks entered gpa and prints results
+    if gpa < HONORTHRESHOLD:
         print(f"\n Me too {firstName} {lastName}... me too...\n")
-        break
+        isRunning = False
